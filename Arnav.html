@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under The Same Sky 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    background: radial-gradient(circle at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+/* Stars */
+.star{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
+
+.card{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding:40px;
+    border-radius:25px;
+    width:360px;
+    text-align:center;
+    box-shadow: 0 0 40px rgba(255,255,255,0.2);
+    color:white;
+    animation: fadeIn 2s ease;
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+#message{
+    min-height:80px;
+    line-height:1.6;
+    transition:0.5s;
+}
+
+button{
+    margin-top:25px;
+    padding:10px 25px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#89f7fe,#66a6ff);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Under The Same Sky 🌙</h1>
+
+    <div id="message">
+        Somewhere under this same night sky…  
+        there’s something I want to tell you everyday bachaa 💫
+    </div>
+
+    <button onclick="nextMessage()">Click 💙</button>
+</div>
+
+<script>
+
+// Create stars
+for(let i=0;i<100;i++){
+    const star=document.createElement("div");
+    star.classList.add("star");
+    star.style.width=Math.random()*3+"px";
+    star.style.height=star.style.width;
+    star.style.top=Math.random()*100+"vh";
+    star.style.left=Math.random()*100+"vw";
+    star.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(star);
+}
+
+const messages = [
+    "From the moment you entered my life, everything felt different...very different 💙",
+    "You became my calm in chaos 🌙 hn kabhi kabhi jhagde v hote h pr still u r my safest place...and always be 💗😙🫴🏻 ",
+    "My comfort after a long day 🤍",
+    "The reason behind my quiet smiles 😊",
+    "The person I think about before sleeping ✨",
+    "The one I silently pray stays forever just with me 🕊️",
+    "You matter to me more than I show...💭",
+    "If life gives me choices again… I’d still choose youagain and again 💍",
+    "In every lifetime. In every universe i wanna be with you still choosing you 🌌",
+    "I love you more than these stars can ever count 💙"
+];
+
+let index = 0;
+
+function nextMessage(){
+    const msg = document.getElementById("message");
+    const button = document.querySelector("button");
+
+    if(index < messages.length){
+        msg.style.animation = "none";
+        void msg.offsetWidth;
+        msg.innerHTML = messages[index];
+        msg.style.animation = "fadeIn 1s ease";
+        index++;
+    } else {
+
+        msg.style.animation ="none";
+        void msg.offsetWidth;
+
+        msg.innerHTML = "That’s all my heart could whisper tonight… n every night since the day i met you, Arnav 🌙💙 and just look at the sky up there which connects us even though we are apart, I LOVE YOU AND HAPPY VALENTINE'S DAY MY LOVE!!!!";
+
+        msg.style.animaton = "fadeIn 3s ease";
+
+        button.innerHTML = "Replay 💗";
+        index=0;
+    }
+}
+
+</script>
+
+</body>
+</html>
